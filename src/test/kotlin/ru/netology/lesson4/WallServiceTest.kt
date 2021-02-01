@@ -21,7 +21,7 @@ class WallServiceTest {
     }
 
     @Test
-    fun updateExisting() {
+    fun updateFunction_returnTrue() {
         // создаём целевой сервис
         val service = WallService()
         // заполняем несколькими постами
@@ -37,4 +37,23 @@ class WallServiceTest {
         // проверяем результат (используйте assertTrue или assertFalse)
         assertTrue(result)
     }
+
+    @Test
+    fun updateFunction_returnFalse() {
+        // создаём целевой сервис
+        val service = WallService()
+        // заполняем несколькими постами
+        service.add(Post(text = "First post"))
+        service.add(Post(text = "Second post"))
+        service.add(Post(text = "Third post"))
+        // создаём информацию об обновлении
+        val update = Post(id = 4, text = "updated text of the post")
+
+        // выполняем целевое действие
+        val result = service.update(update)
+
+        // проверяем результат (используйте assertTrue или assertFalse)
+        assertFalse(result)
+    }
+
 }
