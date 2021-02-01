@@ -2,12 +2,16 @@ package ru.netology.lesson4.service
 
 import ru.netology.lesson4.data.Post
 
-class WallService {
+object WallService {
     private var posts = emptyArray<Post>()
     private var originalId = 1
 
     fun add(post: Post): Post {
-        posts += post.copy(id = originalId++)
+        if (posts.isEmpty()){
+            posts += post.copy(id = 1)
+        } else{
+            posts += post.copy(id = posts.last().id+1)
+        }
         return posts.last()
     }
 
