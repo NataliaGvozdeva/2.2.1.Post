@@ -6,7 +6,7 @@ import java.time.LocalTime
 
 fun main() {
 
-    val post1 = Post(text = "First post", likes = Likes(count = 0) )
+    val post1 = Post(text = "First post", likes = Likes(count = 0))
     var finalPost1 = WallService.add(post1)
     println("Вывод первого поста: $finalPost1")
 

@@ -7,11 +7,8 @@ object WallService {
     private var originalId = 1
 
     fun add(post: Post): Post {
-        if (posts.isEmpty()){
-            posts += post.copy(id = 1)
-        } else{
-            posts += post.copy(id = posts.last().id+1)
-        }
+        val newId = if (posts.isEmpty()) 0 else posts.last().id
+        posts += post.copy(id=newId+1)
         return posts.last()
     }
 
