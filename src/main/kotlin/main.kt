@@ -6,6 +6,10 @@ import java.time.LocalTime
 
 fun main() {
 
+    //3.2.2
+    val attachment = NoteAttachment("note")
+    WallService.addArrayAttach(attachment)
+
     val post1 = Post(text = "First post", likes = Likes(count = 0))
     var finalPost1 = WallService.add(post1)
     println("Вывод первого поста: $finalPost1")
@@ -16,4 +20,7 @@ fun main() {
 
     val postForMakingChange = Post(id = 1, text = "Changed post 1", likes = Likes(count = 0))
     WallService.update(postForMakingChange)
+
+
+
 }
